@@ -217,6 +217,8 @@ namespace Links
             public static readonly string popper_min_js_map = Url("popper.min.js.map");
         }
     
+        public static readonly string vue_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/vue.min.js") ? Url("vue.min.js") : Url("vue.js");
+        public static readonly string vue_min_js = Url("vue.min.js");
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -236,6 +238,7 @@ namespace Links
         public static readonly string bootstrap_css_map = Url("bootstrap.css.map");
         public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
         public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
+        public static readonly string SiteStyles_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/SiteStyles.min.css") ? Url("SiteStyles.min.css") : Url("SiteStyles.css");
     }
 
     
@@ -366,6 +369,8 @@ namespace Links
                 public static readonly string popper_utils_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/popper-utils.min.js"); 
                 public static readonly string popper_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/popper.js"); 
                 public static readonly string popper_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/popper.min.js"); 
+                public static readonly string vue_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/vue.js"); 
+                public static readonly string vue_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/vue.min.js"); 
             }
         }
         public static partial class Content 
@@ -378,6 +383,7 @@ namespace Links
                 public static readonly string bootstrap_reboot_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-reboot.min.css");
                 public static readonly string bootstrap_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap.css");
                 public static readonly string bootstrap_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap.min.css");
+                public static readonly string SiteStyles_css = T4MVCHelpers.ProcessAssetPath("~/Content/SiteStyles.css");
             }
         }
     }
