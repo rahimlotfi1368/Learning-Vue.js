@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn05</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="app1" class="container" v-cloak>
+        <h1>{{ title }}</h1>
+        <hr />
+        <h1>{{ message1 }}</h1>
+        <hr />
+        <h1>{{ message2 }}</h1>
+    </div>
+    <br />
+    <div id="app2" class="container" v-cloak>
+        <h1>{{ title }}</h1>
+        <hr />
+        <h1>{{ message2 }}</h1>
+        <hr />
+        <h1>{{ message1 }}</h1><!--اجرا نمی شود چود در بین شی مربوطه همچین فیلدی وجود ندارد-->
+    </div>
+    <br />
+    <div class="container app3" v-cloak> <!-- این دیتکت می شود چون اولین ناحیه است که از این کلاس استفاده می کند-->
+        <h1>{{ title }}</h1>
+        <hr />
+        <h1>{{ message3 }}</h1>
+    </div>
+    <br />
+    <div class="container app3" v-cloak><!--این دیتکت نمی شود-->
+        <h1>{{ title }}</h1>
+        <hr />
+        <h1>{{ message3 }}</h1>
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app1 = new Vue({
+
+            el: `#app1`,
+
+            data: {
+
+                title: ` Hello World!(1) `,
+                message1: `message (1)`,
+
+            }
+
+        })
+
+        const app2 = new Vue({
+
+            el: `#app2`,
+
+            data: {
+
+                title: ` Hello World!(2) `,
+                message2: `message (2)`,
+
+            }
+
+        })
+
+          const app3 = new Vue({
+
+            el: `.app3`,
+
+            data: {
+
+                title: ` Hello World!(3) `,
+                message3: `message (3)`,
+
+            }
+
+          })
+
+          const app4 = new Vue({
+
+            el: `.app4`,
+
+            data: {
+
+                title: ` Hello World!(4) `,
+                message4: `message (4)`,
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

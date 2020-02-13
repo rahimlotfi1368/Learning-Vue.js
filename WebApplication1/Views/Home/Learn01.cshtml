@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn01</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            Hello world!
+        </h1>
+
+        <br />
+
+        <div id="app" class="container">
+
+            {{ 10+5 }}
+            <br />
+            {{ 10-5 }}
+            <br />
+            {{ 10*5 }}
+            <br />
+            {{ 10/5 }}
+            <br />
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //solotion 1
+        //var app = new Vue({
+
+        //    el: `#app`,
+
+        //})
+
+        //solotion 2
+        //let app = new Vue({
+
+        //    el:`#app`,
+
+        //})
+
+        //best practice
+        const app = new Vue({
+
+            el:`#app`,
+
+        })
+    </script>
+</body>
+
+</html>

@@ -3,31 +3,38 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Learn03</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/SiteStyles.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container">
-        <h1>
-            Hello world!
-        </h1>
-      
-        <br />
-         
-        <div class="container">
 
-            {{10+5}}
-
+        <div id="app" class="container">
+            <h1>{{ title }}</h1>
         </div>
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/vue.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
 
     <script>
 
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                title:` Hello World! `,
+
+            }
+
+        })
     </script>
 </body>
+
 </html>

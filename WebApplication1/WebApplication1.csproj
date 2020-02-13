@@ -106,6 +106,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\r.jpg" />
     <Content Include="Content\SiteStyles.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -250,6 +251,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Home\Learn01.cshtml" />
+    <Content Include="Views\Home\Learn02.cshtml" />
+    <Content Include="Views\Home\Learn03.cshtml" />
+    <Content Include="Views\Home\Learn04.cshtml" />
+    <Content Include="Views\Home\Learn05.cshtml" />
+    <Content Include="Views\Home\Learn06.cshtml" />
+    <Content Include="Views\Home\Learn07.cshtml" />
+    <Content Include="Views\Home\Learn08.cshtml" />
+    <Content Include="Views\Home\Learn09.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

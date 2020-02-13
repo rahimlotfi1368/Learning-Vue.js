@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn04</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+@*وقتی ما یک صفحه مجهز به وی یو جی اس را اجرا می کنیم چند اتفاق می افتد
+    1-صفحه دانلود می شود
+    2-استایل ها دانلود می شود
+    3-جاوا اسکریپت دانلود می شود
+    4-دستورات اجرا می شود
+    قبل از دانلود جاوا اسکریپت و اجرای وی یو جی اس صفحه
+    با اجزای خالی نمایش داده می شود و پس از اعمال دستورات وی یو جی اس
+    اجزای صفحه تاثیر مربوطه را می پذیرند و نمایش می دهند
+    برای حل این لختی ما از v-cloakبهره می بریم.
+    ---------------------------------------------------------------------------------
+    این استایل باعث می شود که تا 4 مرحله بالا کامل نشده اند صفحه نمایش داده نشود*@
+<body>
+    <div class="container">
+
+        <div id="app"  class="container" v-cloak>
+            <h1>{{ title }}</h1>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                title: ` Hello World! `,
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

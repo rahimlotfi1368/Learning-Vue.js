@@ -14,5 +14,49 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public virtual System.Web.Mvc.ViewResult Learn01()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn02()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn03()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn04()
+        {
+            return View();
+        }
+        public virtual System.Web.Mvc.ViewResult Learn05()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn06()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn07()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn08()
+        {
+            return View();
+        }
+
+        public virtual System.Web.Mvc.ViewResult Learn09()
+        {
+            return View();
+        }
     }
 }

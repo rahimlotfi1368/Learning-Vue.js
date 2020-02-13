@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn09</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <div v-show="display">
+            Hello world!(1)
+        </div>
+        <br />
+        <div v-if="display">
+            Hello World!(2)
+        </div>
+        <br />
+        <div v-if="display">
+            Hello World!(3)
+        </div>
+        <div v-else>
+            Hello World!(4)
+        </div>
+        <br />
+
+        <button type="button" v-on:click="toggelDisplay()">Toggel Display</button>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                display: true,
+
+            },
+
+             methods: {
+
+                 toggelDisplay: function () {
+                     this.display = !this.display
+                 }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

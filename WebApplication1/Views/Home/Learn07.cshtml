@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn07</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="app" class="container" v-cloak>
+        <div>{{ message1 }}</div>
+        <div v-text="message1"></div>
+        <div v-html="message1"></div>
+        <hr />
+        <div>{{ message2 }}</div>
+        <div v-text="message2"></div>
+        <div v-html="message2"></div>
+        <hr />
+        <img v-bind:src="myImage.source" v-bind:alt="myImage.alt" />
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                message1: ` Hello World! `,
+                message2: `<b>Hello World!</b>`,
+
+                myImage: {
+
+                    alt: `rahim lotfi`,
+                    source: `~/Content/Images/r.jpg`,
+
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

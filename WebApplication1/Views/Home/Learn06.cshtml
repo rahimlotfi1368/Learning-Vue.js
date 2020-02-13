@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn06</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+   <style>
+       [v-cloak]{
+           display:none;
+       }
+   </style>
+</head>
+
+<body>
+    <div class="container" v-cloak>
+
+        <div id="app" class="container" v-cloak>
+            <b> FullName: {{ firstName }} {{ lastName }}</b>
+            <br />
+            <b> FullName: {{ person.firstName }} {{ person.lastName }}</b>
+            <br />
+            <b> FullName: {{ person.firstName.toUpperCase() }} {{ person.lastName.toUpperCase() }}</b>
+            <br />
+            <b> FullName: {{ person.firstName.toLowerCase() }} {{ person.lastName.toLowerCase() }}</b>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                firstName: `Rahim`,
+                lastName: `Lotfi`,
+
+                person: {firstName:`oRahim`,lastName: `oLotfi`}
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

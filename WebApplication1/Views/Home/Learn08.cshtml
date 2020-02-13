@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn08</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app" class="container" v-cloak>
+
+        <h1>{{ title }}</h1>
+        <h3 v-on:click="doSomeThing">Click Me!(1)</h3>
+        <h3 v-on:click="doSomeThing()">Click Me!(2)</h3>
+        <h3 @@click="doSomeThing">Click Me!(3)</h3>
+        <h3 @@click="doSomeThing()">Click Me!(4)</h3>
+        <hr />
+        <button type="button" v-on:click="doSomeThingNew('Rahim Lotfi')">
+            Click Me!
+        </button>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                title: ` Hello World! `,
+
+            },
+
+            methods: {
+
+                doSomeThing: function () {
+
+                    alert(`Hello, World!`);
+
+                },
+
+                doSomeThingNew: function (text) {
+
+                    this.title = text;
+                },
+            }
+
+            })
+    </script>
+</body>
+
+</html>
