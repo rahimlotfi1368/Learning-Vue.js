@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn13</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h2>Binding</h2>
+        WellCome <b>{{ fullName }}</b>
+        <br />
+        <button type="button" class="btn btn-primary btn-sm" v-on:click="doSomething()">Do Something</button>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                fullName:`Mr. Rahim Lotfi`,
+            },
+
+            methods: {
+                doSomething: function () {
+
+                    this.fullName=`Go To Hell ass hole!!`
+                },
+
+            },
+
+            //vue.js objectes Life cycle!!!
+            beforeCreate: function () {
+
+                console.log(`Before Create!`)
+
+            },
+
+            created: function () {
+
+                console.log(`Created!`)
+
+            },
+
+            beforemount: function () {
+
+                console.log(`Before Mount!`)
+
+            },
+
+            mounted: function () {
+
+                console.log(`mounted`)
+
+            },
+
+            beforeUpdate: function () {
+
+                console.log(`Before update`)
+
+            },
+
+            updated: function () {
+
+                console.log(`Updated`)
+
+            },
+
+            beforeDestroy: function () {
+
+                console.log(`Before Destroy`)
+
+            },
+
+             destroyed: function () {
+
+                console.log(` Destroyed`)
+
+            },
+
+        })
+
+
+        setTimeout(function () {
+
+            app.$destroy()
+
+        }, 30000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn10</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <ul>
+            <li v-for="fullname of fullNames">{{ fullname }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="item in fullNames">{{ item }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-bind:style="{color:item}" v-for="item in colors">{{ item }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-bind:style="{color:item}" v-for="(item,index) in colors">{{ index }}-{{ item }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-bind:style="{color:item}" v-for="(item,index) in colors">{{ index+1 }}-{{ item }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="item in people">{{ item }}</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="item in people">I'm {{ item.fullName }} and {{ item.age }} year old!</li>
+        </ul>
+        <hr />
+        <ul>
+            <li v-for="item in people">
+                <button type="button" class="btn btn-info btn-sm" v-on:click="showInfo(item)">Detils</button>
+                I'm {{ item.fullName }} and {{ item.age }} year old!
+            </li>
+        </ul>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        const allOfFullNames =
+            [
+                `FullName(1)`,
+                `FullName(2)`,
+                `FullName(3)`,
+                `FullName(4)`,
+            ]
+
+        const allOfColors =
+            [
+                `red`,
+                `blue`,
+                `yellow`,
+                `green`,
+            ]
+
+        const allOfPeople =
+            [
+                { fullName: `FullName(1)`, age: 21, description: `Description(1)`, },
+                { fullName: `FullName(2)`, age: 22, description: `Description(2)`, },
+                { fullName: `FullName(3)`, age: 23, description: `Description(3)`, },
+                { fullName: `FullName(4)`, age: 24, description: `Description(4)`, },
+            ]
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                fullNames: allOfFullNames,
+                colors: allOfColors,
+                people: allOfPeople,
+            },
+
+            methods: {
+                showInfo: function (item) {
+
+                    let result =
+                        `FullName :  ${item.fullName}\nAge:${item.age}\nDescription: ${item.description}`
+                    alert(result);
+                }
+                 
+               }
+
+            
+
+        })
+
+    </script>
+</body>
+
+</html>

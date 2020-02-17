@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn14</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <table class="table table-bordered table-info">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in items">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.count }}</td>
+                </tr>
+            </tbody>
+        </table>    
+
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        const products =
+            [
+                { name: `product 1`, price: 10, count: 1 },
+                { name: `product 2`, price: 30, count: 8 },
+                { name: `product 3`, price: 50, count: 4 },
+                { name: `product 4`, price: 90, count: 9 },
+
+            ]
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                items: products,
+                //items: [],
+                //items: null,
+                //items: undefined,
+            },
+
+            methods: {
+
+
+            },
+
+            //vue.js objectes Life cycle!!!
+            beforeCreate: function () {
+                //That will not work here!(initializeing and changing)
+                // this.fullName=`Mr. Rahim Lotfi`
+                console.log(`Before Create!`)
+
+            },
+
+            created: function () {
+                //ok
+                //That will  work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in created`
+                console.log(`Created!`)
+
+            },
+
+            beforemount: function () {
+
+                 //ok
+                //That will  work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in before mount`
+                console.log(`Before Mount!`)
+
+            },
+
+            mounted: function () {
+
+                 //ok
+                //That will  work here in mounted!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`mounted`)
+
+            },
+
+            beforeUpdate: function () {
+
+                 //That will not work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`Before update`)
+
+            },
+
+            updated: function () {
+
+                //That will not work here!(initializeing and changing)
+                //this.fullName= `Mr. Rahim Lotfi in mount`
+                console.log(`Updated`)
+
+            },
+
+            beforeDestroy: function () {
+
+                 //That will not work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`Before Destroy`)
+
+            },
+
+             destroyed: function () {
+
+                  //That will not work here!(initializeing and changing)
+                 //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(` Destroyed`)
+
+            },
+
+        })
+
+
+        setTimeout(function () {
+
+            app.$destroy()
+
+        }, 30000)
+    </script>
+</body>
+
+</html>

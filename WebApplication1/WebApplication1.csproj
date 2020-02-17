@@ -260,6 +260,12 @@
     <Content Include="Views\Home\Learn07.cshtml" />
     <Content Include="Views\Home\Learn08.cshtml" />
     <Content Include="Views\Home\Learn09.cshtml" />
+    <Content Include="Views\Home\Learn10.cshtml" />
+    <Content Include="Views\Home\Learn11.cshtml" />
+    <Content Include="Views\Home\Learn12.cshtml" />
+    <Content Include="Views\Home\Learn13.cshtml" />
+    <Content Include="Views\Home\Learn14.cshtml" />
+    <Content Include="Views\Home\Learn15.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

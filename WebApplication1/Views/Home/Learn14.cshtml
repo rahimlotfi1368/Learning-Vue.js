@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn14</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h2>Binding</h2>
+        WellCome <b>{{ fullName }}</b>
+        <br />
+      
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                fullName: null,
+            },
+
+            methods: {
+                
+
+            },
+
+            //vue.js objectes Life cycle!!!
+            beforeCreate: function () {
+                //That will not work here!(initializeing and changing)
+                // this.fullName=`Mr. Rahim Lotfi`
+                console.log(`Before Create!`)
+
+            },
+
+            created: function () {
+                //ok
+                //That will  work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in created`
+                console.log(`Created!`)
+
+            },
+
+            beforemount: function () {
+
+                 //ok
+                //That will  work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in before mount`
+                console.log(`Before Mount!`)
+
+            },
+
+            mounted: function () {
+
+                 //ok
+                //That will  work here in mounted!(initializeing and changing)
+                this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`mounted`)
+
+            },
+
+            beforeUpdate: function () {
+
+                 //That will not work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`Before update`)
+
+            },
+
+            updated: function () {
+
+                //That will not work here!(initializeing and changing)
+                //this.fullName= `Mr. Rahim Lotfi in mount`
+                console.log(`Updated`)
+
+            },
+
+            beforeDestroy: function () {
+
+                 //That will not work here!(initializeing and changing)
+                //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(`Before Destroy`)
+
+            },
+
+             destroyed: function () {
+
+                  //That will not work here!(initializeing and changing)
+                 //this.fullName=`Mr. Rahim Lotfi in mount`
+                console.log(` Destroyed`)
+
+            },
+
+        })
+
+
+        setTimeout(function () {
+
+            app.$destroy()
+
+        }, 30000)
+    </script>
+</body>
+
+</html>

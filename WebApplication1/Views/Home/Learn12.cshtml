@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn12</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h2>Binding</h2>
+        WellCome <b>{{ fullName }}</b>
+        <br />
+        <input type="text" v-model="fullName" />
+        <br />
+        <input type="text" v-model="fullName" />
+        <br />
+        <button type="button" class="btn btn-primary btn-sm" v-on:click="doSomething()">Do Something</button>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        const allOfColors =
+            [
+                `red`,
+                `blue`,
+                `yellow`,
+                `green`,
+            ]
+
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                fullName:`Mr. Rahim Lotfi`,
+            },
+
+            methods: {
+                doSomething: function () {
+
+                    this.fullName=`Go To Hell ass hole!!`
+                },
+
+               }
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn11</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        WellCome <b>{{ fullName }}</b>
+        <br />
+        WellCome <b>{{ fullName.toUpperCase() }}</b>
+        <br />
+        WellCome <b>{{ fullName.toLowerCase() }}</b>
+        <br />
+        <input type="text" v-model="fullName" />
+        <hr />
+        <p>if person = null or undefined then we will face with error!! </p>
+        person Information: <b>{{ person.address }}</b>
+        <hr />
+        <p>if we face with above Error!</p>
+
+        <div v-if="animal">
+            animal Information: <b>{{ animal.name }}</b>
+        </div>
+        <br />
+        <b style="color:red">To prevent Error!</b>
+        @*animal Information: {{ animal?.name }}*@
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+              
+        const allOfColors =
+            [
+                `red`,
+                `blue`,
+                `yellow`,
+                `green`,
+            ]
+
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                fullName:`Rahim lotfi`,
+                person: {name:`Rahim Lotfi`,address:`tehran-khosroabadi`},
+                //person: undefined,//[Vue warn]: Error in render: "TypeError: Cannot read property 'address' of undefined"
+                //person:null,//vue.js:634 [Vue warn]: Error in render: "TypeError: Cannot read property 'address' of null"
+                //animal: { name:`cow`}
+                animal: undefined,
+            },
+
+            methods: {
+               
+
+               }
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
