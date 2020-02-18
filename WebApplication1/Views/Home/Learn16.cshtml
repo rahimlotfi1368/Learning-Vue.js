@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn15</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-bordered table-striped table-hover table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Count</th>
+                            <th>Function</th>
+                            <th>Sub Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*virtual Dom*@
+                        <tr v-for="(item,index) in items" v-bind:key="item.id">
+                            <td>{{ index+1 }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.count }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" v-on:click="plus(item)">+</button>
+                                &nbsp;
+                                <button type="button" class="btn btn-danger" v-on:click="minus(item)">-</button>
+                            </td>
+                            <td>{{ getSubTotal(item) }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">Total</td>
+                            <td>{{ getTotal() }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        const products =
+            [
+                { id:1, name: `product 1`, price: 10, count: 1 },
+                { id:2, name: `product 2`, price: 30, count: 8 },
+                { id:3, name: `product 3`, price: 50, count: 4 },
+                { id:4, name: `product 4`, price: 90, count: 9 },
+
+            ]
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                items: products,
+                //items: [],
+                //items: null,
+                //items: undefined,
+            },
+
+            methods: {
+
+                plus: function (item) {
+
+                    if (item.count < 10) {
+
+                        ++item.count
+                    }
+                   
+
+                },
+
+                minus: function (item) {
+
+                    if (item.count > 0) {
+
+                        --item.count
+                    }
+
+                },
+
+                getSubTotal: function (item) {
+
+                    let result = item.price * item.count
+                    if (item.count > 5) {
+
+                        result*=0.97
+                    }
+                    return (result)
+                },
+
+                getTotal: function () {
+
+                    //let total = 0
+                    //for (let index = 0; index < this.items.length; index++) {
+
+                    //    let currentItem = this.items[index]
+                    //    let subTotal = currentItem.count * currentItem.price
+                    //    if (currentItem.count>5) {
+
+                    //        subTotal*=0.97
+
+                    //    }
+
+                    //    total += subTotal
+
+                    //}
+
+                    //return (total)
+                    //----------------------------Best Practic-------------------------
+                    let total = 0
+                    for (var index = 0; index < this.items.length; index++) {
+
+                        let currentItem = this.items[index]
+                        total += this.getSubTotal(currentItem)
+                    }
+
+                    return (total)
+                }
+
+            },
+        })
+
+          
+    </script>
+</body>
+
+</html>
