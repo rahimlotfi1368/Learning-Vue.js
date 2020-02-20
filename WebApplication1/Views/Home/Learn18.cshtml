@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn18</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" style="background-color:khaki" class="container" v-cloak>
+        <h4>DropDown list 1</h4>
+        <select v-model="selectedCountry1">
+            <option v-for="item in countries">{{ item }}</option>
+        </select>
+        &nbsp;
+        <b>Your selected Country is : {{ selectedCountry1 }} </b>
+        <hr />
+
+        <h4>DropDown list 2 (with Bug)</h4>
+        <select v-model="selectedCountry2">
+            <option v-for="item in countries">{{ item }}</option>
+        </select>
+        &nbsp;
+        <b>Your selected Country is : {{ selectedCountry2 }} </b>
+        <hr />
+
+        <h4>DropDown list 3 (with Bug)</h4>
+        <select v-model="selectedCountry3">
+            <option v-for="item in countries">{{ item }}</option>
+        </select>
+        &nbsp;
+        <b>Your selected Country is : {{ selectedCountry3 }} </b>
+        <hr />
+
+        <h4>DropDown list 4 (without Bug)</h4>
+        <select v-model="selectedCountry4">
+            <option v-bind:value="null">Select an Item</option>
+            <option v-for="item in countries">{{ item }}</option>
+        </select>
+        &nbsp;
+        <b>Your selected Country is : {{ selectedCountry4 }} </b>
+        <hr />
+
+        <h4>DropDown list 4 (with objectes)</h4>
+        <select v-model="selectedCity1">
+            <option v-bind:value="null">Select an Item</option>
+            <option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+        </select>
+        <br />
+        <div v-if="selectedCity1">
+            <b>Your selected city id is : {{ selectedCity1.id }} </b>
+            <br />
+            <b>Your selected city id is : {{ selectedCity1.name }} </b>
+        </div>
+        <hr />
+
+        <h4>DropDown list 5 (with objectes and initilizing in created)</h4>
+        <select v-model="selectedCity2">
+            <option v-bind:value="null">Select an Item</option>
+            <option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+        </select>
+        <br />
+        <div v-if="selectedCity2">
+            <b>Your selected city id is : {{ selectedCity2.id }} </b>
+            <br />
+            <b>Your selected city id is : {{ selectedCity2.name }} </b>
+        </div>
+        <hr />
+
+        <h4>DropDown list 6 (with objectes field)</h4>
+        <select v-model="selectedRoleId1">
+            <option v-bind:value="null">Select an Item</option>
+            <option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+        </select>
+        <br />
+        <b>Your selected role id is :</b> <b v-if="selectedRoleId1"> {{ selectedRoleId1 }} </b>
+        <br />
+        <hr />
+
+        <h4>DropDown list 7 (with objectes field and created initilizing)</h4>
+        <select v-model="selectedRoleId2">
+            <option v-bind:value="null">Select an Item</option>
+            <option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+        </select>
+        <br />
+        <b>Your selected role id is :</b> <b v-if="selectedRoleId2"> {{ selectedRoleId2 }} </b>
+        <br />
+        <hr />
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                countries: [
+                    `Iran`,
+                    `Iraq`,
+                    `Germany`,
+                    `Azarbayjan`,
+                ],
+
+                selectedCountry1: `Iran`,
+                selectedCountry2: null,
+                selectedCountry3: undefined,//not rcommand you should escape from undefined
+                selectedCountry4: null,
+
+                cities: [
+                    { id: 1, name: `Tehran`, },
+                    { id: 2, name: `Tabriz`, },
+                    { id: 3, name: `Esfahan`, },
+                    { id: 4, name: `Shiraz`, },
+
+                ],
+
+                selectedCity1: null,
+                selectedCity2: null,
+
+                roles: [
+                    { id: 1, name: `User`, },
+                    { id: 2, name: `Manager`, },
+                    { id: 3, name: `Superviser`, },
+                    { id: 4, name: `Administrator`, },
+
+                ],
+                selectedRoleId1: null,
+                selectedRoleId2: null,
+            },
+
+            methods: {
+
+
+
+
+            },
+
+            computed: {
+
+
+
+
+            },
+
+            created: function () {
+
+                this.selectedCity2 = this.cities[1]
+                this.selectedRoleId2 = this.roles[3].id
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

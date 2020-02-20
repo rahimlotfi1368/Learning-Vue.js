@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn17</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+
+        <input type="text" class="form-control " placeholder="Enter Valu Of X" v-model="x" />
+        &nbsp;
+        <input type="text" class="form-control " placeholder="Enter Valu Of Y" v-model="y" />
+        <br />
+        <b>Sum of X and Y is : {{ sum() }}</b>
+        <br />
+        <b>Sum of X and Y with computedSum is : {{ computedSum }}</b>
+        <br />
+        <button type="button" class="btn btn-primary" v-on:click="iteration()">incressing t</button>
+        <b>{{ t }}</b>
+        <br />
+        <button type="button" class="btn btn-primary" v-on:click="message2()">Show Message</button>
+
+
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+        
+              //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                x: 10,
+                y: 20,
+                t: 30,
+                message:`message2 should not execute!`,               
+            },
+
+            methods: {
+
+                sum: function () {
+
+                    let result = this.x  + this.y
+                    return (result)
+
+                },
+
+                 message2: function () {
+
+                    
+                    alert(this.message);
+
+                },
+                //در وی یو چی اس وقتی یک تابع در قسمت متد فراخوانی می شود تمام توابع متد که در ناحیه وی یو جی اس  فراخوانی شده اند اجرا می شوند  که این 
+                //باعث افزایش بار می شود.
+                 //برای حل این مشکل از کامپیوتد پراپرتی استفاده می کنیم
+
+                iteration: function () {
+
+                    this.t++
+
+                },
+
+                message1: function () {
+
+                    let message=`message2 should not execute!`
+                    alert(message);
+
+                },
+
+               
+            },
+
+            computed: {
+
+                //computed tips:
+                //    1) these metodes syntax is similar to function syntax in vue.js or javascript
+                //    2) computed methodes are not function they are read only property
+                //    3) they should not have input parameters
+                //    4) unlik functions we should not use () in declareing time
+                computedSum: function () {
+
+                     let result = this.x  + this.y
+                    return (result)
+
+                }
+
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

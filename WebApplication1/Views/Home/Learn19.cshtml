@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn19</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"  class="container" v-cloak>
+        <select v-model="selectedRole" class="shadow-lg">
+            <option v-bind:value="null" >Filter By Role</option>
+            <option v-for="item in getUniqueRoleList" v-bind:value="item">{{ item }}</option>
+            @*<option v-for="item in getUniqueRoleList" v-bind:value="item.role">{{ item.role }}</option> that is wrong because item is not an array of people so item dont have an field in name of role*@
+        </select>
+
+        <hr />
+
+        <div class="card-columns">
+            <div class="card" v-for="item in peolple" v-show="selectedRole===null || item.role===selectedRole">
+                <div class="card-header bg-info" v-on:click="toggleDisplayDetailes(item)">
+                    <b>{{ item.fullName }}</b>
+                </div>
+                <div class="card-body" v-show="item.displayDetailes">
+                    <b>id:{{ item.id }}</b>
+                    <br />
+                    <b>age:{{ item.age }}</b>
+                    <br />
+                    <b>Role:{{ item.role }}</b>
+                    <br />
+                </div>
+                <div class="card-footer" v-if="item.description" v-show="item.displayDetailes">
+                    <b>{{ item.description }}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+        const allOfPeople =
+            [
+                { id: 1, fullName: `Full Name (1)`, age: 21, role: `Manager`, description: `description(1)` },
+                { id: 2, fullName: `Full Name (2)`, age: 22, role: `User`, description: `description(2)` },
+                { id: 3, fullName: `Full Name (3)`, age: 24, role: `Manager` },
+                { id: 4, fullName: `Full Name (4)`, age: 25, role: `Adminastrator`, description: `description(4)` },
+                { id: 5, fullName: `Full Name (5)`, age: 55, role: `User`, description: `description(5)` },
+                { id: 6, fullName: `Full Name (6)`, age: 44, role: `Adminastrator` },
+                { id: 7, fullName: `Full Name (7)`, age: 24, role: `User` },
+                { id: 8, fullName: `Full Name (8)`, age: 66, role: `User`, description: `description(8)` },
+                { id: 9, fullName: `Full Name (9)`, age: 53, role: `Adminastrator`, description: `description(9)` },
+
+            ]
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+                peolple: allOfPeople,
+                selectedRole:null,
+               
+            },
+
+            methods: {
+
+                toggleDisplayDetailes: function (item) {
+
+                    item.displayDetailes = !item.displayDetailes
+                    
+                },
+
+                //getUniqueList: function () {
+
+                //    const roles = []//آرایه ای از رول ها به طول صفر
+
+                //    ************************solution 1*********************
+                //    for (var index = 0; index < this.peolple.length; index++) {
+
+                //        let item = this.peolple[index]
+                //        if (roles.includes(item.role) == false) {
+
+                //            roles.push(item.role)
+
+                //        }
+
+                //    }
+                //    *******************************************************
+
+                //    ************************solution 2 using Arrow functions*********************
+                //    this.peolple.forEach(item => {
+
+                //        if (roles.includes(item.role) == false) {
+
+                //            roles.push(item.role)
+
+                //        }
+
+                //    })
+                //    *****************************************************************************
+                //    return (roles)
+                //}
+
+            },
+
+            computed: {
+
+                getUniqueRoleList: function () {
+
+                    const roles = []
+                    this.peolple.forEach(item => {
+
+                        if (roles.includes(item.role) == false) {
+
+                            roles.push(item.role)
+
+                        }
+
+                    })
+                    return roles
+                },
+
+
+            },
+
+            created: function () {
+
+                for (var index = 0; index < this.peolple.length; index++) {
+                   //بر خلاف جاوا اسکریپت دستور زیر برای اضافه کردن یک ویژگی /فیلد در
+                    //vue.js
+                    //کار نمی کند و باید از دستور جایگزین استفاده کرد
+                    //this.peolple[index].displayDetailes = true
+                    Vue.set(this.peolple[index], `displayDetailes`, true)
+                }
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>
