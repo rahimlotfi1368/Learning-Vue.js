@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn20</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        div.class1 {
+            color: red;
+        }
+
+        div.class2 {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h3>
+            Class Binding!
+        </h3>
+        <hr />
+        <div class="class1">
+            Hello world!
+        </div>
+        <br />
+        <div class="class2">
+            Hello world!
+        </div>
+        <hr />
+        <div class="class1 class2">
+            Hello world!(3)
+        </div>
+        <hr />
+        <input type="checkbox" v-model="hasclass1" /> Has Class1?
+        <div v-bind:class="{class1 : hasclass1}">
+            Hello World!(4)
+        </div>
+        <hr />
+        <input type="checkbox" v-model="hasclass2" />Has Class1?
+        <br />
+        <input type="checkbox" v-model="hasclass3" />Has Class2?
+        <div v-bind:class="{class1 : hasclass2,class2 : hasclass3}">
+            Hello World!(5)
+        </div>
+        <hr />
+        <button type="button" class="btn btn-info btn-sm" v-on:click="toggol()">Toggol</button>
+        <br />
+        <div v-bind:class="cssClass">
+            {{ message }}
+        </div>
+        <hr />
+        <div v-bind:class="[boolean ? cssClass1 :cssClass2]">
+            {{ message1 }}
+        </div>
+        <br />
+        <button type="button" class="btn btn-info btn-lg" v-on:click="toggleClass()">Toggle class</button>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+                hasclass1: false,
+                hasclass2: false,
+                hasclass3: false,
+
+                message: `Hello World! 6`,
+                cssClass: `class1`,
+
+                message1: `Hello World! 7`,
+                cssClass1:`class1`,
+                cssClass2: `class2`,
+                boolean: true
+            },
+
+            methods: {
+                toggol: function () {
+
+                    if (this.cssClass===`class1`) {
+
+                        this.cssClass=`class2`
+
+                    }
+                    else {
+
+                        this.cssClass=`class1`
+
+                    }
+
+                },
+
+                toggleClass: function () {
+
+                    this.boolean = !this.boolean
+
+                }
+
+
+            },
+
+            computed: {
+
+
+
+
+            },
+
+            created: function () {
+
+
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

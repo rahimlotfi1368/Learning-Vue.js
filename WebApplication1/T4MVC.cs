@@ -27,11 +27,20 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    static readonly LearningHtml5Css3Class s_LearningHtml5Css3 = new LearningHtml5Css3Class();
+    public static LearningHtml5Css3Class LearningHtml5Css3 { get { return s_LearningHtml5Css3; } }
     public static WebApplication1.Controllers.HomeController Home = new WebApplication1.Controllers.T4MVC_HomeController();
 }
 
 namespace T4MVC
 {
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class LearningHtml5Css3Class
+    {
+        public readonly string Name = "LearningHtml5Css3";
+        public WebApplication1.Areas.LearningHtml5Css3.Controllers.HomeController Home = new WebApplication1.Areas.LearningHtml5Css3.Controllers.T4MVC_HomeController();
+        public T4MVC.LearningHtml5Css3.SharedController Shared = new T4MVC.LearningHtml5Css3.SharedController();
+    }
 }
 
 #pragma warning disable 0436
@@ -238,6 +247,14 @@ namespace Links
         public static readonly string bootstrap_css_map = Url("bootstrap.css.map");
         public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
         public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class Images {
+            public const string UrlPath = "~/Content/Images";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+            public static readonly string r_jpg = Url("r.jpg");
+        }
+    
         public static readonly string SiteStyles_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/SiteStyles.min.css") ? Url("SiteStyles.min.css") : Url("SiteStyles.css");
     }
 
@@ -375,6 +392,12 @@ namespace Links
         }
         public static partial class Content 
         {
+            public static partial class Images 
+            {
+                public static class Assets
+                {
+                }
+            }
             public static class Assets
             {
                 public static readonly string bootstrap_grid_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-grid.css");

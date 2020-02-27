@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn04(Area)</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+
+    div {
+        margin-left: 5px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: lightblue;
+
+        /*top applay animation un command below codes*/
+        /*transition-property: transform;
+        transition-duration: 1000ms;
+        transition-delay: 0ms;
+        transition-timing-function: linear;*/
+
+        /*top be cross browser*/
+        -o-transition:transform 1000ms 0ms linear;
+        /*-ms-transition:transform 1000ms 0ms linear;*/
+        -moz-transition:transform 1000ms 0ms linear;
+        -webkit-transition:transform 1000ms 0ms linear;
+
+
+    }
+
+
+
+        div#div1:hover {
+            transform: translate(30px,0);
+            /*transform:translate(-30px,0);*/
+        }
+
+        div#div2:hover {
+            transform: translate(0,-30px);
+            /*transform:translate(0,30px);*/
+        }
+
+        div#div3:hover {
+            transform: translate(30px,30px);
+            /*transform:translate(-30px,-30px);*/
+        }
+
+        div#div4:hover {
+            transform: rotate(-45deg);
+            /*transform:rotate(45deg);*/
+        }
+
+        div#div5:hover {
+            transform: scaleX(1.2);
+            /*transform:scaleX(0.8);*/
+        }
+
+        div#div6:hover {
+            transform: scaleY(1.2);
+            /*transform:scaleY(0.8);*/
+        }
+
+        div#div7:hover {
+            transform: scale(1.2,1.2);
+            /*transform:scale(0.8,0.8);*/
+        }
+
+        div#div8:hover {
+            transform: skewX(45deg);
+            /*transform:skewX(-45deg);*/
+        }
+
+        div#div9:hover {
+            transform: skewY(45deg);
+            /*transform:skewY(-45deg);*/
+        }
+
+        div#div10:hover {
+            transform: skew(30deg,30deg);
+            /*transform:skew(-30deg,-30deg);*/
+        }
+
+        div#div11:hover {
+            transform: matrix(1,-0.3,0,1,0,0);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Animation with transform</h2>
+
+    <div id="div1">translate X</div>
+    <hr />
+    <div id="div2">translate Y</div>
+    <hr />
+    <div id="div3">translate X,Y</div>
+    <hr />
+    <div id="div4">rotate</div>
+    <hr />
+    <div id="div5">scaleX</div>
+    <hr />
+    <div id="div6">scaleY</div>
+    <hr />
+    <div id="div7">scale X,Y</div>
+    <hr />
+    <div id="div8">skewX</div>
+    <hr />
+    <div id="div9">skewY</div>
+    <hr />
+    <div id="div10">skew</div>
+    <hr />
+    <div id="div11">matrix</div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+            },
+
+            methods: {
+
+
+
+            },
+
+            computed: {
+
+
+
+
+            },
+
+            created: function () {
+
+
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

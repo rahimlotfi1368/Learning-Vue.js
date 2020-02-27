@@ -25,7 +25,8 @@
 
         <div class="card-columns">
             <div class="card" v-for="item in peolple" v-show="selectedRole===null || item.role===selectedRole">
-                <div class="card-header bg-info" v-on:click="toggleDisplayDetailes(item)">
+                @*<div class="card-header bg-info " v-on:click="toggleDisplayDetailes(item)">*@
+                <div class="card-header " v-bind:class="[item.displayDetailes ? cssClass1 : cssClass2 ]" v-on:click="toggleDisplayDetailes(item)">
                     <b>{{ item.fullName }}</b>
                 </div>
                 <div class="card-body" v-show="item.displayDetailes">
@@ -69,7 +70,9 @@
             data: {
                 peolple: allOfPeople,
                 selectedRole:null,
-               
+
+                cssClass1:`bg-info`,
+                cssClass2:`bg-success`,
             },
 
             methods: {
