@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn23</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+           .flip-card {
+            position: relative;
+            transition: all 0.8s;
+            transform-style: preserve-3d;
+        }
+
+            .flip-card:hover .flip-card-front {
+                transform: rotateY(180deg);
+            }
+
+            .flip-card:hover .flip-card-back {
+                transform: rotateY(0deg);
+            }
+
+        .flip-card-front {
+            z-index: 2;
+            transition: 1s;
+            position: relative;
+            margin-bottom: 16px;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card-back {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 1s;
+            position: absolute;
+            transform: rotateY(-180deg);
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+       
+
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h2>Learning animations FlashCards in Vue.js </h2>
+        <hr />
+        <div class="row">
+
+            <div class="col-sm-3" v-for="item in flashCards">
+                <div class="flip-card">
+                    <div class="flip-card-front">
+                        <div class="card text-center bg-info border-secondary">
+                            <div class="card-body">
+                                {{ item.front }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card text-center bg-warning border-secondary">
+                            <div class="card-body">
+                                {{ item.back }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                flashCards: [
+
+                    { front: `This is front content 1`, back: `This is back content 1` },
+                    { front: `This is front content 2`, back: `This is back content 2` },
+                    { front: `This is front content 3`, back: `This is back content 3` },
+                    { front: `This is front content 4`, back: `This is back content 4` },
+                    { front: `This is front content 5`, back: `This is back content 5` },
+                    { front: `This is front content 6`, back: `This is back content 6` },
+
+
+                ]
+            },
+
+            methods: {
+                
+            },
+
+            computed: {
+
+
+
+
+            },
+
+            created: function () {
+
+
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -110,6 +110,8 @@
     <Content Include="Content\Images\r.jpg" />
     <Content Include="Content\SiteStyles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -144,6 +146,8 @@
     <Content Include="Areas\LearningHtml5Css3\Views\Home\Learn07.cshtml" />
     <Content Include="Areas\LearningHtml5Css3\Views\Home\Learn08.cshtml" />
     <Content Include="Areas\LearningHtml5Css3\Views\Home\TeacherLearn07.cshtml" />
+    <Content Include="Scripts\axios.min.map" />
+    <Content Include="Scripts\axios.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -292,6 +296,9 @@
     <Content Include="Views\Home\Learn19.cshtml" />
     <Content Include="Views\Home\Learn20.cshtml" />
     <Content Include="Views\Home\Learn21.cshtml" />
+    <Content Include="Views\Home\Learn22.cshtml" />
+    <Content Include="Views\Home\Learn23.cshtml" />
+    <Content Include="Views\Home\Learn24.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
