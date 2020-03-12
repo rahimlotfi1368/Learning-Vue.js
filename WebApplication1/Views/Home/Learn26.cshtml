@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn26</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyles.css" rel="stylesheet" />
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container" v-cloak>
+        <h2>Learning conecting to Backend in Vue.js </h2>
+        <hr />
+        <h5 v-if="dataFrontEnd">{{ dataFrontEnd }}</h5>
+        <hr />
+        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing1()">Do somthing (1)</button>
+        <hr />
+        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing2()">Do somthing (2)</button>
+        <hr />
+        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing3()">Do somthing (3)</button>
+        <hr />
+        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing4()">Do somthing (4)</button>
+       
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/axios.js"></script>
+    <script>
+
+
+
+        //best practice
+        const app = new Vue({
+
+            el: `#app`,
+
+            data: {
+
+                dataFrontEnd: null
+
+            },
+
+            created: function () {
+
+
+            },
+
+            methods: {
+
+                doSomeThing1: function () {
+
+                    let url = "/Home/showMessage1"
+                    this.dataFrontEnd = null
+                    axios.get(url)
+
+                        .then(response => {
+
+                            console.clear()
+                            console.log(`[Then]`)
+                            console.log(response)
+                            this.dataFrontEnd = response.data
+                        })
+                        .catch(error => {
+
+                            console.clear()
+                            console.log(`[Error]`)
+                            console.error(error)
+
+                        })
+                        .finally(() => {
+                            console.log(`[finally]`)
+                        })
+
+                },
+
+                doSomeThing2: function () {
+
+                    let url = "/Home/showMessage2"
+                    this.dataFrontEnd = null
+                    axios.get(url)
+
+                        .then(response => {
+
+                            console.clear()
+                            console.log(`[Then]`)
+                            console.log(response)
+                            this.dataFrontEnd = response.data.BackEndData
+                        })
+                        .catch(error => {
+
+                            console.clear()
+                            console.log(`[Error]`)
+                            console.error(error)
+
+                        })
+                        .finally(() => {
+                            console.log(`[finally]`)
+                        })
+
+                },
+
+                doSomeThing3: function () {
+
+                    let url = "/Home/showMessage3"
+                    this.dataFrontEnd = null
+                    axios.get(url)
+
+                        .then(response => {
+
+                            console.clear()
+                            console.log(`[Then]`)
+                            console.log(response)
+                            this.dataFrontEnd = response.data.BackEndData
+                        })
+                        .catch(error => {
+
+                            console.clear()
+                            console.log(`[Error]`)
+                            console.error(error)
+
+                        })
+                        .finally(() => {
+                            console.log(`[finally]`)
+                        })
+
+                },
+
+                doSomeThing4: function () {
+
+                    let url = "/Home/showMessage4"
+                    this.dataFrontEnd = null
+                    axios.post(url)
+
+                        .then(response => {
+
+                            console.clear()
+                            console.log(`[Then]`)
+                            console.log(response)
+                            this.dataFrontEnd = response.data.BackEndData
+                        })
+                        .catch(error => {
+
+                            console.clear()
+                            console.log(`[Error]`)
+                            console.error(error)
+
+                        })
+                        .finally(() => {
+                            console.log(`[finally]`)
+                        })
+
+                },
+                                
+            },
+
+            computed: {
+
+
+
+
+            },
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>

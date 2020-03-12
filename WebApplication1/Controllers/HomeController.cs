@@ -133,5 +133,145 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+
+        //*******************************practicing conecting to Backend from Frontend by axios.js*********************
+        #region
+        public virtual System.Web.Mvc.ViewResult Learn25()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual void doSomeThing1()
+        {
+
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.JsonResult doSomeThing2()
+        {
+            return null;
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public virtual System.Web.Mvc.JsonResult doSomeThing3()
+        {
+            return null;
+        }
+
+        
+        public virtual System.Web.Mvc.JsonResult doSomeThing4()
+        {
+            throw new System.Exception("Some Error Message");
+        }
+        //Error 500  => server side error
+        //*******************************practicing conecting to Backend from Frontend with return Value by axios.js*********************
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.ViewResult Learn26()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.JsonResult showMessage1()
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+            string dataBackEnd = "Data From Back End";
+            return Json(data: dataBackEnd, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.JsonResult showMessage2()
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            ViewModels.DataViewModel viewModel =
+                new ViewModels.DataViewModel
+                {
+                    BackEndData = "Data From Back End",
+                };
+
+            return Json(data: viewModel, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.JsonResult showMessage3()
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            var data =
+               new {BackEndData = "Data From Back End",};
+            return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// use PostMan
+        /// </summary>
+        /// <returns></returns>
+        [System.Web.Mvc.HttpPost]
+        public virtual System.Web.Mvc.JsonResult showMessage4()
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            var data =
+               new { BackEndData = "Data From Back End", };
+            return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+        //*******************************practicing conecting to Backend from Frontend with Input Value by axios.js*********************
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.ViewResult Learn27()
+        {
+            return View();
+        }
+
+        //To get data from view
+        //1)creating a class in viewmodel to hold all inputs from view(in controler)
+        //2)creating a class in view (in javascript) with the same property in viewmodel class properties in backend(in view)
+        //3)initilizing url in view(get and post)
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.JsonResult ShowInformationByGet(ViewModels.PersonViewModel personViewModel)
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            var data =
+               new { BackEndData = $"Get Resolt From Back-End: My name is {personViewModel.FirstName} {personViewModel.LastName}", };
+            return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public virtual System.Web.Mvc.JsonResult ShowInformationByPost(ViewModels.PersonViewModel personViewModel)
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            var data =
+               new { BackEndData = $"Post Resolt From Back-End: My name is {personViewModel.FirstName} {personViewModel.LastName}", };
+            return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+        //*****************************Creating Loading in our pages********************************************
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.ViewResult Learn28()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public virtual System.Web.Mvc.ViewResult Learn29()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public virtual System.Web.Mvc.JsonResult ShowInformation(ViewModels.PersonViewModel personViewModel)
+        {
+            System.Threading.Thread.Sleep(millisecondsTimeout: 5000);//ایجاد لختی مصنوعی
+
+            var data =
+               new { BackEndData = $"Post Resolt From Back-End: My name is {personViewModel.FirstName} {personViewModel.LastName}", };
+            return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
     }
 }

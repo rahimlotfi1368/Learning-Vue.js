@@ -268,6 +268,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DataViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -299,6 +301,11 @@
     <Content Include="Views\Home\Learn22.cshtml" />
     <Content Include="Views\Home\Learn23.cshtml" />
     <Content Include="Views\Home\Learn24.cshtml" />
+    <Content Include="Views\Home\Learn25.cshtml" />
+    <Content Include="Views\Home\Learn26.cshtml" />
+    <Content Include="Views\Home\Learn27.cshtml" />
+    <Content Include="Views\Home\Learn28.cshtml" />
+    <Content Include="Views\Home\Learn29.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
