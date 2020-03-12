@@ -30,14 +30,14 @@
         <hr />
         First Name :
         <br />
-        <input type="text" v-model="person.firstName"  />
+        <input type="text" v-model="person.firstName" />
         <br />
         Last Name :
         <br />
-        <input type="text" v-model="person.lastName"  />
+        <input type="text" v-model="person.lastName" />
         <hr />
-        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing()" >Show By Post</button>
-        
+        <button type="button" class="btn btn-primary text-center" v-on:click="doSomeThing()">Show By Post</button>
+
 
         <!-- Modal -->
         <div id="LoadingModal" class="modal " tabindex="-1" role="dialog" >
@@ -47,17 +47,19 @@
                         <h5 class="modal-title text-danger text-center">
                             Please Waite
                         </h5>
-                       
+
                     </div>
                     <div class="modal-body text-danger" >
                         <div class="spinner-border text-danger " role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
+       
+
 
     </div>
 
@@ -77,6 +79,7 @@
             data: {
 
                 dataFrontEnd: null,
+
                 
                 person: {
                     firstName: null,
@@ -86,7 +89,7 @@
             },
 
             created: function () {
-
+                
 
             },
 
@@ -94,7 +97,7 @@
 
                 doSomeThing: function () {
                     this.dataFrontEnd = null
-
+                   
                     $(`div#LoadingModal`).modal({ backdrop: false, keyboard: false, })
 
                     let url = "/Home/ShowInformation"
@@ -113,7 +116,8 @@
 
                         })
                         .finally(() => {
-                            $(`div#LoadingModal`).modal(`hide`) 
+                            $(`div#LoadingModal`).modal(`hide`)
+                            
                         })
 
                 },
